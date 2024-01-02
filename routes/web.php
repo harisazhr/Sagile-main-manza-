@@ -240,7 +240,8 @@ Route::get('userstory/{userstory}/destroy', 'UserStoryController@destroy')->name
 Route::get('userstory/backlog/{sprint_id}', 'UserStoryController@backlog')->name('userstory.backlog');
 Route::get('userstory/backlog/assign/{sprint_id}/{userstory}', 'UserStoryController@assignUserstory')->name('userstory.assign');
 
-
+//Route for UCD
+Route::get('ucd/{sprint_id}', 'UCDController@index')->name('ucd.index');
 
 //Route for backlog
 Route::get('backlog/{proj_id}', 'ProductFeatureController@backlog')->name('backlog.index');
