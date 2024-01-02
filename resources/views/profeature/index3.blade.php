@@ -75,6 +75,8 @@
         <button type="submit"><a href="{{ route('userstory.create', $sprint_id) }}">Create User Story</a></button>
 
         <button type="submit"><a href="{{ route('userstory.backlog', $sprint_id) }}">Assign User Story from Backlog</a></button>
+
+        <button type="button"><a href="{{ route('ucd.index', ['sprint_id' => $sprint_id]) }}">UCD</a></button>
        <br><br>
       
 @endsection
