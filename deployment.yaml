@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sagile-web
+spec:
+  replicas: 2  # Adjust the number of replicas based on your needs
+  selector:
+    matchLabels:
+      app: sagile-web
+  template:
+    metadata:
+      labels:
+        app: sagile-web
+    spec:
+      containers:
+        - name: sagile-web
+          image: harisazhr / sagileweb1
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5000
+          env:
+            - name: APP_ENV
+              value: local
+            - name: APP_KEY
+              value: base64:Nn5opatbjt/PN5hGWDXFR9RPMHQ1XXufemZkMqgXSJ0=
+            - name: APP_DEBUG
+              value: "true"
+            - name: APP_URL
+              value: http://localhost
+            - name: LOG_CHANNEL
+              value: stack
+            - name: DB_CONNECTION
+              value: mysql
+            - name: DB_HOST
+              value: 127.0.0.1
+            - name: DB_PORT
+              value: "3306"
+            - name: DB_DATABASE
+              value: kanban
+            - name: DB_USERNAME
+              value: root
+            - name: DB_PASSWORD
+              value: ""
